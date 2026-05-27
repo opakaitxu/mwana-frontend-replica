@@ -3,298 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Tomás Zaba" content="mwana App" />
+    <meta name="description" content="mwana App" />
+    <meta name="author" content="Tomás Zaba" />
+    <meta http-equiv="refresh" content="3" />
     <meta
       name="A friendly user interface to the mwana App"
       content="mwana App"
     />
     <link rel="icon" href="assets/img/logo.png" type="image/x-icon" />
-
+    <link rel="stylesheet" href="assets/css/style-index.css" />
     <title>mwana App</title>
   </head>
+
+  <!-- Body -->
+
   <body>
-    <div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">Data Upload</a></li>
-          <li><a href="#contact">Data Wrangling</a></li>
-          <li><a href="#contact">Plausibility Checks</a></li>
-          <li><a href="#contact">Prevalence Analysis</a></li>
-          <li><a href="#contact">IPC Check</a></li>
-        </ul>
-      </nav>
-    </div>
+    <div class="nav-bar">
+      <ul class="menu-items">
+        <li class="index"><a href="#tab1">Home</a></li>
+        <li class="data-upload"><a href="#tab2">Data Upload</a></li>
+        <li class="data-wrangling"><a href="#tab3">Data Wrangling</a></li>
+        <li class="plausibility"><a href="#tab4">Plausibility Checks</a></li>
+        <li class="prevalence"><a href="#tab5">Prevalence Analysis</a></li>
+        <li class="ipc"><a href="#tab6">IPC Check</a></li>
+      </ul>
 
-    <!-- Side navigation bar for table of contents -->
-    <div class="card-contents">
-      <h4>Contents</h4>
-      <h6><a href="#sec1">Welcome</a></h6>
-      <h6><a href="#sec2">Data Upload</a></h6>
-      <h6><a href="#sec3">Data Wrangling</a></h6>
-      <h6><a href="#sec4">Plausibility Checks</a></h6>
-      <h6><a href="#sec5">Prevalence Analysis</a></h6>
-      <h6><a href="#sec6">IPC Check</a></h6>
-      <h6><a href="#sec7">Authorship</a></h6>
-      <h6><a href="#sec8">License</a></h6>
-    </div>
-
-    <!-- Main content area -->
-    <div class="card-main">
-      <h3>
-        A seamless graphical interface to the mwana R package for data
-        wrangling, plausibility checking, and prevalence analysis of wasting
-      </h3>
-      <a>
-        <img
-          src="assets/img/logo.png"
-          alt="mwana Logo"
-          style="margin-left: 1rem; width: 100px; height: auto"
-        />
-      </a>
-    </div>
-
-    <hr />
-
-    <!-- Sections for each part of the app -->
-    <div class="card-sections">
-      <!-- Section 1: Welcome -->
-      <section id="sec1">
-        <h4>Welcome to the mwana App</h4>
-        <p>
-          This app is a lightweight, field-ready application thoughtful designed
-          to seamlessly streamline plausibility checks and wasting prevalence
-          estimation of child anthropometric data, by automating key steps of
-          the R package
-          <a href="https://mphimo.github.io/mwana/"><code>mwana</code></a>
-          for non-R users.
-        </p>
-        <p>
-          The app is divided in five easy-to-navigate tabs, apart from the Home
-          - where you at right now.
-        </p>
-        <ol>
-          <li><bold>Data Upload</bold></li>
-          <li><bold>Data Wrangling</bold></li>
-          <li><bold>Plausibility Checks</bold></li>
-          <li><bold>Prevalence Analysis</bold></li>
-          <li><bold>IPC Check</bold></li>
-        </ol>
-      </section>
-
-      <hr />
-
-      <!-- Section 2: Data Upload -->
-      <section id="sec2">
-        <h4>Data Upload</h4>
-        <p>
-          This is where the workflow begins. Upload the dataset saved in a
-          comma-separated-value format (.csv); this is the only accepted format.
-          Click on the 'Browse' button to locate the file to be uploaded from
-          your computer; it is as simple as that. Once uploaded, the first 20
-          rows will be priviewed on the right side.
-        </p>
-        <ul>
-          <li><bold>Data requirements</bold></li>
-          <p>
-            The data to be uploaded must have been tidy up in accordance to the
-            below-described app's input file and input variable requirements:
-          </p>
-          <ul>
-            <li>Input file requirements</li>
-            <ul>
-              <li>
-                <bold>File naming</bold>: the file name must use underscore ( _
-                ) to separate words. Hyphen ( - ) or simple spaces will lead to
-                errors along the uploading process. Consider the following
-                naming example: <i>my_file_to_upload.csv</i>
-              </li>
-            </ul>
-            <li>Input variable requirements</li>
-            <ul>
-              <li>
-                <bold>Age:</bold>: values must be in months. The variable name
-                must be written in lowercase ('age').
-              </li>
-              <li>
-                <bold>Sex:</bold>: values must be given in 'm' for boys and 'f'
-                for girls. The variable name must be written in lowercase
-                ('sex').
-              </li>
-              <li>
-                <bold>MUAC:</bold>: values must be in millimetres. Ensure there
-                are no strange numbers, such as '130.1'. The presence of decimal
-                places will raise error in the data wrangling tab and hault the
-                app. The variable name must be written in lowercase ('muac').
-              </li>
-              <li>
-                <bold>Oedema:</bold>: values must be given in 'y' for yes, and
-                'n' for no. The variable name must be written in lowercase
-                ('oedema').
-              </li>
-            </ul>
-
-            <hr />
-
-            <!-- Section 3: Data Wrangling -->
-            <section id="sec3">
-              <h4>Data Wrangling</h4>
-              <p>
-                Wrangle the dataset for downstream workflow. For this, different
-                wrangling methods are given. Upon completion, this tab's output
-                becomes available in subsequent tabs; therefore, the wrangling
-                method selected herein should match the intended analysis. Under
-                the hood, the wrangling process consists in calculating age in
-                months and excluding all records that fall under six months and
-                over 59.99 months. Then, it computes z-scores - if either WFHZ
-                or MFAZ method is selected - then it detects outliers based on
-                the SMART flagging criteria - for z-scores. For MUAC, when age
-                in months is not available, values under 100 and over 200
-                millimetres are considered as outliers. At the the end, two new
-                columns get added into the dataset: wfhz and flag_wfhz for
-                weight-for-heigh z-scores and flagged records, respectively.
-                Moreover, when working with MUAC and when age is available, the
-                following columns get added: mfaz and flag_mfaz for MUAC-for-age
-                z-scores and flagged records, respectively. Finally, when age is
-                not available, only one column gets added: flag_muac which
-                indicates the flagged records based on the above-mentioned
-                criterion. Once the wrangling process is completed, a preview of
-                the output is displayed on the right side of the tab, wherein
-                the first 20 rows are shown. You can get a full view of the
-                entire dataset by downloading it. Click on the 'Download Wrangle
-                Data' button, and thereafter look for the file in the
-                'downloads' folder on your computer.
-              </p>
-            </section>
-
-            <hr />
-            <!-- Section 4: Plausibility Checks -->
-            <section id="sec4">
-              <h4>Plausibility Checks</h4>
-              <p>
-                As above-described, this tab depends on the previous tab. Select
-                the same method as in the data wrangling. Thereafter, supply the
-                input fields with the corresponding variables from the dataset.
-                For this, a dropdown list of the variable names found in the
-                dataset is given; Select the one that applies, and click on
-                'Check Plausibility' button thereafter. The app lets you get the
-                plausibility checks results grouped by different categories - up
-                to a maximum of three. For this, supply the grouping variables
-                to Area 1 Area 2 and Area 3. For example: In your dataset, there
-                are the following indentifying variables: 'state', 'county', and
-                'team'. You wish to get the plausibility check results grouped
-                by province, then by county and then you also wish to check the
-                results by survey teams that worked in each county and
-                provinces. You can achieve this simply by supplying 'province'
-                to Area 1 'county' to Area 2 and 'team' to Area 3.Upon
-                completion, you can download the results into Excel by clicking
-                on the 'Download Results' button found at the bottom-right side
-                of the tab.
-              </p>
-            </section>
-
-            <hr />
-            <!-- Section 5: Prevalence Analysis -->
-            <section id="sec5">
-              <h4>Prevalence Analysis</h4>
-
-              <p>
-                As afore-mentioned, this tab depends on the data wrangling. The
-                app lets you estimate prevalence derived from survey and
-                screening. Therefore, the first step is to select the data
-                source - whether survey or screening. If screening, indicate
-                whether there is an age variable in the dataset with values
-                given in months. This tells the app whether to use it or resort
-                to a fallback - when 'No' is selected. In the latter case, you
-                must have a variable called age_cat . This should have the
-                following categories: '6-23' for each record wherein age is
-                between 6 and 23 months, and '24-59' for when age is between 24
-                and 59 monts. This must be done before uploading the data. The
-                age_cat variable is supplied to the Age categories (6-23 and
-                24-59) input field. This ensures that MUAC-based prevalence gets
-                age-weighted whenever there is excess of children in the 6-23'
-                category. Read more
-                <a
-                  href="https://mphimo.github.io/mwana/reference/age_ratio.html"
-                  >here</a
-                >
-                and
-                <a
-                  href="https://mphimo.github.io/mwana/articles/prevalence.html#sec-prevalence-muac"
-                  >here</a
-                >.
-              </p>
-
-              <p>
-                Thereafter, the next step is to select the method to define
-                acute malnutrition. Then, supply the input variables as
-                required.
-              </p>
-              <p>
-                You can also group the analysis by different groups, as
-                explained in the plausibility check section. Follow the same
-                guide provided therein.
-              </p>
-            </section>
-
-            <hr />
-            <!-- Section 6: IPC Check -->
-            <section id="sec6">
-              <h4>IPC Check</h4>
-              <p>
-                This lets you check whether the IPC Acute Malnutrition evidence
-                requirements for outcome data have been met or not. It checks
-                against survey, screening and sentinel sites data source-related
-                requirements, in accordance with the IPC protocols.
-              </p>
-              <p>
-                This tab depends on the 'Upload Data' tab; this means that you
-                can check the requirements even before the wrangling the data.
-              </p>
-            </section>
-
-            <hr />
-
-            <!-- Section 7: Authorship -->
-            <section id="sec7">
-              <h4>Authorship</h4>
-              <p>
-                This app was developed by Tomás Zaba, a nutrition epidemiologist
-                with over 10 years of experience in the field of nutrition
-                surveillance and malnutrition prevalence estimation. Tomás is
-                the lead developer of the R package
-                <a href="https://mphimo.github.io/mwana/"><code>mwana</code></a
-                >, which is the underlying engine of this app. The app was
-                developed with the aim of making the functionalities of the
-                <code>mwana</code>
-                package accessible to non-R users, particularly those working in
-                field settings where R may not be readily available.
-              </p>
-            </section>
-
-            <hr />
-            <!-- Section 8: License -->
-            <section id="sec8">
-              <h4>License</h4>
-              <p>
-                This app is licensed under the GPL (GNU General Public License)
-                License. This means that you are free to use, copy, modify,
-                merge, publish, distribute, sublicense, and/or sell copies of
-                the app, as long as you include the original copyright notice
-                and this permission notice in all copies or substantial portions
-                of the app. The app is provided "as is", without warranty of any
-                kind, express or implied, including but not limited to the
-                warranties of merchantability, fitness for a particular purpose
-                and non-infringement. In no event shall the authors or copyright
-                holders be liable for any claim, damages or other liability,
-                whether in an action of contract, tort or otherwise, arising
-                from, out of or in connection with the app or the use or other
-                dealings in the app.
-              </p>
-            </section>
-          </ul>
-        </ul>
-      </section>
+      <!-- Display brand and logo -->
+      <p class="brand">mwana</p>
     </div>
   </body>
 </html>
