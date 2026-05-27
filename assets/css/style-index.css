@@ -16,6 +16,7 @@ body {
   background-color: #004225;
   margin-left: -9px;
   width: 1471px;
+  display: flex;
 }
 
 .brand {
@@ -37,25 +38,20 @@ body {
   margin-top: 13.5px;
 }
 
-.menu-items {
-  font-size: 16px;
-  text-align: center;
-  height: 0.5rem;
+.menu-items ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin-top: 30px;
+  margin-left: 80px;
 }
 
-.index,
-.data-upload,
-.data-wrangling,
-.plausibility,
-.prevalence,
-.ipc {
+.menu-items li {
   display: inline-block;
-  margin-inline: 13px;
-  padding: 0px 0px 0px 15px;
 }
 
-li a {
-  color: rgba(255, 255, 255, 0.4);
+.menu-items a {
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none; /* remove underline */
   padding-left: 5px;
 }
