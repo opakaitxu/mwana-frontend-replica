@@ -68,3 +68,66 @@ li a:hover {
   color: rgba(209, 197, 226, 0.8);
   text-decoration: underline;
 }
+
+/* ---- Table of Contents --------------------------------------------------- */
+
+.contents ul {
+  list-style-type: none;
+  padding-left: 12px;
+  margin-top: -1rem;
+  font-size: 16px;
+}
+
+.contents {
+  width: 13%;
+}
+
+.welcome,
+.data-upload,
+.data-wrangling,
+.plausibility,
+.prevalence,
+.ipcheck,
+.author,
+.license {
+  text-decoration: underline;
+}
+
+.welcome,
+.data-upload,
+.data-wrangling,
+.plausibility,
+.prevalence,
+.ipcheck,
+.author,
+.license {
+  color: dodgerblue;
+}
+
+/* ---- Main content -------------------------------------------------------- */
+
+.app-title {
+  font-size: 25px;
+  width: 88%;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main {
+  margin-left: 1rem;
+  width: 100px;
+  height: auto;
+  right: 20px;
+  top: 350px;
+}
+
+.logo {
+  position: fixed;
+}
